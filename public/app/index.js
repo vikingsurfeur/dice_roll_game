@@ -99,6 +99,8 @@ function holdTheScore() {
         currentScore = 0;
         document.querySelector('#currentScorePlayer__' + currentPlayer).textContent = currentScore;
 
+        changePlayer();
+
         if (globalScore[currentPlayer] >= winningScore) {
             document.querySelector("#globalScorePlayer__" + currentPlayer).textContent =
                 "You're the Winner by " +
