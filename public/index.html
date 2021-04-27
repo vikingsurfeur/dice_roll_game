@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- LANGUAGE -->
+<html lang="en">
+    <!-- HEAD -->
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- TITLE -->
+        <title>Roll the Dice</title>
+        <!-- SEO -->
+        <meta name="description" content="" />
+        <!-- FAVICON / GO TO https://favicon.io/ -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./favicon-16x16.png"
+        />
+        <link rel="manifest" href="./site.webmanifest" />
+        <!-- SOCIAL NETWORK TITLE -->
+        <meta property="og:title" content="" />
+        <!-- SOCIAL NETWORK PICTURE -->
+        <meta property="og:image" content="https://" />
+        <!-- CARD TWITTER / GO TO https://webcode.tools/twitter-card-generator/ -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="titre affiché" />
+        <meta name="twitter:image" content="https://" />
+        <meta name="twitter:description" content="" />
+        <!-- LINK BOOTSTRAP CSS -->
+        <!-- <link 
+        rel="stylesheet" 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" 
+        crossorigin="anonymous"
+    /> -->
+        <!-- LINK STYLESHEET CSS -->
+        <link rel="stylesheet" type="text/css" href="./style/style.css" />
+    </head>
+    <body>
+        <main class="main">
+            <!-- INTERFACE -->
+            <section class="main__interface">
+                <div class="main__interface__newgame">
+                    <a href="#" class="main__interface__newgame__button">
+                        <img
+                            src="./img/icon_img/icon_new.png"
+                            alt="add/plus icon"
+                            id="btnNewGame"
+                            class="main__interface__newgame__button__plus"
+                        />
+                    </a>
+                    <h2 class="main__interface__newgame__title">NEW GAME</h2>
+                </div>
+                <div class="main__interface__dice">
+                    <img
+                        src="./img/dice_img/dice_five.png"
+                        alt="dice"
+                        id="diceFace"
+                        class="main__interface__dice__content"
+                    />
+                </div>
+                <div class="main__interface__command">
+                    <div class="main__interface__rolldice">
+                        <a href="#" id="btnRollDice" class="main__interface__rolldice__button">
+                            <img
+                                src="./img/icon_img/icon_roll.png"
+                                alt="undo icon"
+                                class="main__interface__rolldice__button__undo"
+                            />
+                        </a>
+                        <h1 class="main__interface__rolldice__title">
+                            ROLL DICE
+                        </h1>
+                    </div>
+                    <div class="main__interface__hold">
+                        <a href="#" class="main__interface__hold__button">
+                            <img
+                                src="./img/icon_img/icon_hold.png"
+                                alt="hold icon"
+                                id="btnHold"
+                                class="main__interface__hold__button__hold"
+                            />
+                        </a>
+                        <h2 class="main__interface__hold__title">HOLD</h2>
+                    </div>
+                </div>
+            </section>
+            <!-- PLAYER ONE -->
+            <section id="playerOneInterface" class="main__player__one">
+                <div class="main__player__one__global">
+                    <h3 class="main__player__one__global__title">PLAYER 1</h3>
+                    <h4 id="globalScorePlayer__0" class="main__player__one__global__datascore">0</h4>
+                </div>
+                <div class="main__player__one__current__score">
+                    <h5 class="main__player__one__current__score__title">
+                        CURRENT
+                    </h5>
+                    <p id="currentScorePlayer__0" class="main__player__one__current__score__datascore">
+                        0
+                    </p>
+                </div>
+            </section>
+            <!-- PLAYER TWO -->
+            <section id="playerTwoInterface" class="main__player__two">
+                <div class="main__player__two__global">
+                    <h3 id="playerTwoTitle" class="main__player__two__global__title">PLAYER 2</h3>
+                    <h4 id="globalScorePlayer__1" class="main__player__two__global__datascore">0</h4>
+                </div>
+                <div class="main__player__two__current__score">
+                    <h5 class="main__player__two__current__score__title">
+                        CURRENT
+                    </h5>
+                    <p id="currentScorePlayer__1" class="main__player__two__current__score__datascore">
+                        0
+                    </p>
+                </div>
+            </section>
+        </main>
+        <script src="./app/index.js"></script>
+    </body>
+</html>

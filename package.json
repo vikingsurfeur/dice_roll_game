@@ -1,0 +1,25 @@
+{
+  "name": "pattern_scratch",
+  "version": "1.0.0",
+  "description": "A tiny game for my studies",
+  "main": "./public/app/index.js",
+  "scripts": {
+    "sass": "sass --watch ./scss/main.scss:./public/style/style.css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vikingsurfeur/roll_the_dice.git"
+  },
+  "keywords": [
+    "pattern",
+    "7-1",
+    "front-end",
+    "scss"
+  ],
+  "author": "David Bouscarle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vikingsurfeur/roll_the_dice/issues"
+  },
+  "homepage": "https://github.com/vikingsurfeur/roll_the_dice#readme"
+}

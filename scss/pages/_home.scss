@@ -1,0 +1,175 @@
+.main {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+
+    &__interface {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+
+        &__newgame,
+        &__rolldice,
+        &__hold {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__button__plus,
+            &__button__undo,
+            &__button__hold {
+                width: 50%;
+                transition: transform 250ms ease;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+
+                @include for-size(md) {
+                    width: 75%;
+                }
+            }
+
+            &__title {
+                font-size: 1.5rem;
+                @include for-size(md) {
+                    font-size: 2.5rem;
+                }
+            }
+        }
+
+        &__newgame {
+            margin-top: 3rem;
+        }
+
+        &__hold
+         {
+            margin-top: 2rem;
+            @include for-size(md) {
+                margin-top: 3rem;
+            }
+        }
+
+        &__command {
+            margin-bottom: 3rem;
+            @include for-size(md) {
+                margin-bottom: 18rem;
+            }
+        }
+
+        &__dice {
+
+            &__content {
+                margin: 0 auto;
+                max-width: 100px;
+                @include for-size(md) {
+                    max-width: 150px;
+                }
+            }
+        }
+    }
+
+    &__player__one,
+    &__player__two {
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+
+        &__global {
+
+            &__title {
+                position: relative;
+                font-size: 2.5em;
+                @include for-size(md) {
+                    font-size: 4rem;
+                }
+            }
+
+            &__datascore {
+                margin-top: 1.5rem;
+                font-size: 4rem;
+                @include for-size(md) {
+                    font-size: 6rem;
+                }
+            }
+        }
+
+        &__current__score {
+            width: 125px;
+            height: 100px;
+            margin: 6rem auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            border-radius: 10px;
+            color: $white;
+            background-color: $red;
+            @include for-size(md) {
+                width: 200px;
+                height: 150px;
+                margin: 0 auto;
+            }
+
+            &__title {
+                font-size: 1.5rem;
+                @include for-size(md) {
+                    font-size: 2.5rem;
+                }
+            }
+
+            &__datascore {
+                font-size: 3rem;
+                @include for-size(md) {
+                    font-size: 5rem;
+                }
+            }
+        }
+    }
+
+    &__player__one {
+        background-color: $white;
+    }
+
+    &__player__two {
+        background-color: $grey;
+    }
+}
+
+// EVENT CLASS
+
+.active {
+    font-weight: 400;
+}
+
+.active .main__player__one__global__title::after,
+.active .main__player__two__global__title::after {
+    content: '';
+    position: absolute;
+    top: 10%;
+    margin-left: 5px;
+    width: 25px;
+    height: 25px;
+    background-image: url('../../public/img/icon_img/icon_play.png');
+    background-size: 25px 25px;
+    @include for-size(md) {
+        top: 0;
+        margin-left: 10px;
+        width: 50px;
+        height: 50px;
+        background-size: 50px 50px;
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
