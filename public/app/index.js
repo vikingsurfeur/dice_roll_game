@@ -72,7 +72,7 @@ function newGame() {
 }
 
 function rollDice(event) {
-    event.stopPropagation();
+    event.preventDefault();
 
     if (gamePlay) {
         chanceNumber = Math.floor(Math.random() * numberOfDiceFace + 1);
@@ -108,7 +108,9 @@ function changePlayer() {
     });
 }
 
-function holdTheScore() {
+function holdTheScore(event) {
+    event.preventDefault();
+    
     if (gamePlay) {
         globalScore[currentPlayer] += currentScore;
         document.querySelector('#globalScorePlayer__' + currentPlayer).textContent = globalScore[currentPlayer];
