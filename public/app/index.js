@@ -6,6 +6,9 @@ const
     btnHold               = document.querySelector('#btnHold'),
     playerOneInterface    = document.querySelector('#playerOneInterface'),
     playerTwoInterface    = document.querySelector('#playerTwoInterface'),
+    playerOneBar          = document.querySelector('#progressBar__0'),
+    playerTwoBar          = document.querySelector('#progressBar__1'),
+    playerBar             = [playerOneBar, playerTwoBar],
     playersInterface      = [playerOneInterface, playerTwoInterface],
     faceResult            = document.querySelector('#diceFace'),
     numberOfDiceFace      = 6,
@@ -54,6 +57,10 @@ function newGame() {
         setZero.textContent = '0';
     });
 
+    playerBar.forEach((setZero) => {
+        setZero.style.width = 0;
+    });
+
     playersInterface.forEach((setUnactive) => {
         setUnactive.classList.remove('active');
     })
@@ -95,11 +102,11 @@ function holdTheScore() {
     if (gamePlay) {
         globalScore[currentPlayer] += currentScore;
         document.querySelector('#globalScorePlayer__' + currentPlayer).textContent = globalScore[currentPlayer];
-        
+
+        document.querySelector('#progressBar__' + currentPlayer).style.width = globalScore[currentPlayer] + '%';
+
         currentScore = 0;
         document.querySelector('#currentScorePlayer__' + currentPlayer).textContent = currentScore;
-
-        changePlayer();
 
         if (globalScore[currentPlayer] >= winningScore) {
             document.querySelector("#globalScorePlayer__" + currentPlayer).textContent =
@@ -116,5 +123,7 @@ function holdTheScore() {
                 newGame();
             }, 3000);
         }
+        
+        changePlayer();
     }
 }
