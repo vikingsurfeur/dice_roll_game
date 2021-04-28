@@ -4,6 +4,7 @@ const
     btnNewGame            = document.querySelector('#btnNewGame'),
     btnRollDice           = document.querySelector('#btnRollDice'),
     btnHold               = document.querySelector('#btnHold'),
+    btnMute               = document.querySelector('#btnMute'),
     playerOneInterface    = document.querySelector('#playerOneInterface'),
     playerTwoInterface    = document.querySelector('#playerTwoInterface'),
     playerOneBar          = document.querySelector('#progressBar__0'),
@@ -23,7 +24,10 @@ const
     rollAudio             = new Audio('../public/audio/dice_roll.mp3'),
     holdAudio             = new Audio('../public/audio/hold_score.wav'),
     looseAudio            = new Audio('../public/audio/loose_one.wav'),
-    winAudio              = new Audio('../public/audio/win_game.wav');  
+    winAudio              = new Audio('../public/audio/win_game.wav'),
+    audioBank             = [rollAudio, holdAudio, looseAudio, winAudio],
+    audioOn               = './img/icon_img/sound_on.png',
+    audioOff              = './img/icon_img/sound_off.png';
 
 let 
     globalScorePlayerOne  = document.querySelector('#globalScorePlayer__0'),
@@ -43,6 +47,7 @@ let
 btnNewGame.addEventListener('click', newGame);
 btnRollDice.addEventListener('click', rollDice);
 btnHold.addEventListener('click', holdTheScore);
+btnMute.addEventListener('click', muteSound);
 
 // INTIALIZING THE GAME
 
@@ -71,8 +76,7 @@ function newGame() {
     playerOneInterface.classList.add('active');
 }
 
-function rollDice(event) {
-    event.preventDefault();
+function rollDice() {
 
     if (gamePlay) {
         chanceNumber = Math.floor(Math.random() * numberOfDiceFace + 1);
@@ -108,9 +112,7 @@ function changePlayer() {
     });
 }
 
-function holdTheScore(event) {
-    event.preventDefault();
-    
+function holdTheScore() {
     if (gamePlay) {
         globalScore[currentPlayer] += currentScore;
         document.querySelector('#globalScorePlayer__' + currentPlayer).textContent = globalScore[currentPlayer];
@@ -142,4 +144,16 @@ function holdTheScore(event) {
         
         changePlayer();
     }
+}
+
+function muteSound() {
+    audioBank.forEach((setMuted) => {
+        if (setMuted.muted) {
+            setMuted.muted = false;
+            btnMute.setAttribute('src', audioOn);
+        } else {
+            setMuted.muted = true;
+            btnMute.setAttribute('src', audioOff);
+        }
+    });
 }
