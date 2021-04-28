@@ -19,7 +19,11 @@ const
     faceFive              = './img/dice_img/dice_five.png',
     faceSix               = './img/dice_img/dice_six.png',
     diceFace              = [faceOne, faceTwo, faceThree, faceFour, faceFive, faceSix],
-    winningScore          = 100;
+    winningScore          = 100,
+    rollAudio             = new Audio('../public/audio/dice_roll.mp3'),
+    holdAudio             = new Audio('../public/audio/hold_score.wav'),
+    looseAudio            = new Audio('../public/audio/loose_one.wav'),
+    winAudio              = new Audio('../public/audio/win_game.wav');  
 
 let 
     globalScorePlayerOne  = document.querySelector('#globalScorePlayer__0'),
@@ -75,12 +79,18 @@ function rollDice(event) {
         let indexChanceNumber = chanceNumber - 1;
         faceResult.setAttribute('src', diceFace[indexChanceNumber]);
 
+        rollAudio.play();
+
         currentRolls[currentPlayer]++;
 
         if (chanceNumber !== 1) {
             currentScore += chanceNumber;
             document.querySelector('#currentScorePlayer__' + currentPlayer).textContent = currentScore;
         } else {
+            setTimeout(() => {
+                looseAudio.play();
+            }, 500);
+
             changePlayer();
         }
     }
@@ -105,6 +115,8 @@ function holdTheScore() {
 
         document.querySelector('#progressBar__' + currentPlayer).style.width = globalScore[currentPlayer] + '%';
 
+        holdAudio.play();
+
         currentScore = 0;
         document.querySelector('#currentScorePlayer__' + currentPlayer).textContent = currentScore;
 
@@ -113,6 +125,8 @@ function holdTheScore() {
                 "You're the Winner by " +
                 currentRolls[currentPlayer] +
                 " of dice rolls.";
+            
+            winAudio.play();
 
             btnRollDice.classList.add('disabled');
             btnHold.classList.add('disabled');
@@ -121,7 +135,7 @@ function holdTheScore() {
                 btnRollDice.classList.remove('disabled');
                 btnHold.classList.remove('disabled');
                 newGame();
-            }, 3000);
+            }, 5000);
         }
         
         changePlayer();
