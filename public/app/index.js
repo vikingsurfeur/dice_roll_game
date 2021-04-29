@@ -1,3 +1,9 @@
+/* 
+ * DICE ROLL GAME
+ * Author: David BOUSCARLE
+ * Evaluation JS Studi / Bachelor WebDev Full Stack
+*/
+
 // BUNCH OF VARIABLES
 
 const 
