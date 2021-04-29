@@ -101,6 +101,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        justify-content: space-around;
         @include for-size(sm) {
             justify-content: space-around;
         }
@@ -108,7 +109,6 @@
         &__global {
 
             &__title {
-                margin-top: 10rem;
                 position: relative;
                 font-size: 2.5em;
                 @include for-size(md) {
@@ -128,7 +128,7 @@
         &__progress {
             width: 15rem;
             height: 20px;
-            margin: 2rem auto 18rem;
+            margin: 2rem auto 0;
             @include for-size(md) {
                 width: 30rem;
             }
@@ -151,7 +151,7 @@
         &__current__score {
             width: 125px;
             height: 100px;
-            margin: 0 auto;
+            margin: 0 auto 4rem;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
